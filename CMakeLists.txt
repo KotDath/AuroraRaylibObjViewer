@@ -10,6 +10,33 @@ include(FindPkgConfig)
 pkg_search_module(AURORA auroraapp REQUIRED)
 pkg_search_module(AURORA auroraapp_i18n REQUIRED)
 
+include(FetchContent)
+
+set(RAYLIB_VERSION 5.5)
+
+FetchContent_Declare(
+  raylib
+  URL "https://github.com/raysan5/raylib/archive/refs/tags/${RAYLIB_VERSION}.zip"
+)
+
+FetchContent_Populate(raylib)
+
+set(RAYLIB_DIRECTORY ${raylib_SOURCE_DIR}/src/)
+
+configure_file(${CMAKE_SOURCE_DIR}/thirdparty/Makefile ${RAYLIB_DIRECTORY}/Makefile COPYONLY)
+
+execute_process(
+    COMMAND make PLATFORM=PLATFORM_DESKTOP_SDL SDL_INCLUDE_PATH=/usr/include/SDL2 SDL_LIBRARY_PATH=/usr/lib RAYLIB_LIBTYPE=SHARED
+    WORKING_DIRECTORY ${raylib_SOURCE_DIR}/src/
+    RESULT_VARIABLE MAKE_RESULT
+    OUTPUT_VARIABLE MAKE_OUTPUT
+    ERROR_VARIABLE MAKE_ERROR
+)
+
+if (MAKE_RESULT)
+    message(FATAL_ERROR "Failed to build Raylib: ${MAKE_ERROR}")
+endif()
+
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -62,6 +89,13 @@ set(CMAKE_SKIP_RPATH FALSE)
 set(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
 set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/share/${PROJECT_NAME}/lib")
 
+include_directories(${RAYLIB_DIRECTORY})
+
+add_library(Raylib::Raylib SHARED IMPORTED)
+set_target_properties(Raylib::Raylib PROPERTIES
+    IMPORTED_LOCATION "${RAYLIB_DIRECTORY}/libraylib.so"
+    INTERFACE_INCLUDE_DIRECTORIES "${RAYLIB_DIRECTORY}"
+)
 
 add_executable(${PROJECT_NAME}
     ${HEADER_FILES}
@@ -85,6 +119,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt5::Quick
     ${AURORA_LDFLAGS}
+    Raylib::Raylib
 )
 
 install(TARGETS ${PROJECT_NAME}
