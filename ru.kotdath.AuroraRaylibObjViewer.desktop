@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=silica-qt5
+Icon=ru.kotdath.AuroraRaylibObjViewer
+Exec=/usr/bin/ru.kotdath.AuroraRaylibObjViewer
+Name=AuroraRaylibObjViewer
+Name[ru]=AuroraRaylibObjViewer
+
+[X-Application]
+Permissions=MediaIndexing;UserDirs
+OrganizationName=ru.kotdath
+ApplicationName=AuroraRaylibObjViewer
+ExecDBus=/usr/bin/ru.kotdath.AuroraRaylibObjViewer
