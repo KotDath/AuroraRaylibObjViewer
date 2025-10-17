@@ -4,22 +4,22 @@
 <context>
     <name>AboutPage</name>
     <message>
-        <location filename="../../AuroraRaylibObjViewer/qml/pages/AboutPage.qml" line="20"/>
+        <location filename="../../AuroraRaylibObjViewer/qml/pages/AboutPage.qml" line="23"/>
         <source>About Application</source>
         <translation>О приложении</translation>
     </message>
     <message>
-        <location filename="../../AuroraRaylibObjViewer/qml/pages/AboutPage.qml" line="30"/>
+        <location filename="../../AuroraRaylibObjViewer/qml/pages/AboutPage.qml" line="33"/>
         <source>#descriptionText</source>
         <translation>&lt;p&gt;Short description of my Aurora OS Application&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../AuroraRaylibObjViewer/qml/pages/AboutPage.qml" line="35"/>
+        <location filename="../../AuroraRaylibObjViewer/qml/pages/AboutPage.qml" line="38"/>
         <source>3-Clause BSD License</source>
         <translation>Лицензия 3-Clause BSD</translation>
     </message>
     <message>
-        <location filename="../../AuroraRaylibObjViewer/qml/pages/AboutPage.qml" line="45"/>
+        <location filename="../../AuroraRaylibObjViewer/qml/pages/AboutPage.qml" line="48"/>
         <source>#licenseText</source>
         <translation>&lt;p&gt;&lt;i&gt;Copyright (C) 2022 ru.kotdath&lt;/i&gt;&lt;/p&gt;
 &lt;p&gt;Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:&lt;/p&gt;
@@ -34,7 +34,7 @@
 <context>
     <name>DefaultCoverPage</name>
     <message>
-        <location filename="../../AuroraRaylibObjViewer/qml/cover/DefaultCoverPage.qml" line="10"/>
+        <location filename="../../AuroraRaylibObjViewer/qml/cover/DefaultCoverPage.qml" line="13"/>
         <source>AuroraRaylibObjViewer</source>
         <translation>AuroraRaylibObjViewer</translation>
     </message>
@@ -42,7 +42,7 @@
 <context>
     <name>MainPage</name>
     <message>
-        <location filename="../../AuroraRaylibObjViewer/qml/pages/MainPage.qml" line="10"/>
+        <location filename="../../AuroraRaylibObjViewer/qml/pages/MainPage.qml" line="13"/>
         <source>AuroraRaylibObjViewer</source>
         <translation>AuroraRaylibObjViewer</translation>
     </message>

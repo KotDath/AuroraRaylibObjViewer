@@ -1,3 +1,7 @@
+%define __provides_exclude_from ^%{_datadir}/%{name}/lib/.*$
+%define __requires_exclude ^(libraylib.*).*$
+
+
 Name:       ru.kotdath.AuroraRaylibObjViewer
 Summary:    My Aurora OS Application
 Version:    0.1
@@ -23,6 +27,12 @@ Short description of my Aurora OS Application
 %ninja_build
 
 %install
+
+mkdir -p %{buildroot}/%{_datadir}/%{name}/lib/
+cp $RPM_BUILD_DIR/_deps/raylib-src/src/*.so* %{buildroot}/%{_datadir}/%{name}/lib/
+chmod 600 %{buildroot}/%{_datadir}/%{name}/lib/*.so*
+
+
 %ninja_install
 
 %files
